@@ -1,0 +1,117 @@
+identity:
+  name: imagetool
+  author: caffbyte
+  label:
+    en_US: Text-to-Image
+    zh_Hans: 文生图
+    pt_BR: Text-to-Image
+description:
+  human:
+    en_US: Create an image based on your text description.
+    zh_Hans: 根据文字描述生成图像。
+    pt_BR: Crie uma imagem com base na sua descrição de texto.
+  llm: Generate an image based on a text prompt
+parameters:
+  - name: model
+    type: string
+    required: true
+    label:
+      en_US: Model
+      zh_Hans: 模型
+      pt_BR: Modelo
+    human_description:
+      en_US: Select the model you want to use.
+      zh_Hans: 模型名称。示例值：wanx2.1-t2i-turbo。
+      pt_BR: Selecione o modelo que deseja usar.
+    llm_description: Select the model
+    form: llm
+  - name: prompt
+    type: string
+    required: true
+    label:
+      en_US: Prompt
+      zh_Hans: 提示词
+      pt_BR: Prompt
+    human_description:
+      en_US: The forward prompt, used to describe the elements and visual characteristics you want in the generated image.
+      zh_Hans: 正向提示词，用来描述生成图像中期望包含的元素和视觉特点。
+      pt_BR: Prompt para descrever os elementos e características visuais que você deseja na imagem gerada.
+    llm_description: Text description to generate the image
+    form: llm
+  - name: size
+    type: select
+    required: false
+    default: 1024*1024
+    label:
+      en_US: Image Size
+      zh_Hans: 图片尺寸
+      pt_BR: Tamanho da Imagem
+    human_description:
+      en_US: Choose the image size from the options below.
+      zh_Hans: 从以下选项中选择图片尺寸。
+      pt_BR: Escolha o tamanho da imagem nas opções abaixo.
+    llm_description: Select the image size
+    form: form
+    options:
+      - label:
+          en_US: 1024*1024
+          zh_Hans: 1024*1024
+          pt_BR: 1024*1024
+        value: 1024*1024
+      - label:
+          en_US: 1280*720
+          zh_Hans: 1280*720
+          pt_BR: 1280*720
+        value: 1280*720
+      - label:
+          en_US: 720*1280
+          zh_Hans: 720*1280
+          pt_BR: 720*1280
+        value: 720*1280
+  - name: count
+    type: number
+    required: false
+    label:
+      en_US: Number of Images
+      zh_Hans: 生成图片数量
+      pt_BR: Número de Imagens
+    human_description:
+      en_US: Select how many images you want to generate (1–4).
+      zh_Hans: 选择要生成的图片数量（1~4）。
+      pt_BR: Selecione quantas imagens deseja gerar (1–4).
+    llm_description: Number of images to generate
+    form: form
+    min: 1
+    max: 4
+    default: 1
+  - name: prompt_extend
+    type: boolean
+    required: false
+    label:
+      en_US: Enable Smart Prompt Rewriting
+      zh_Hans: 开启智能改写
+      pt_BR: Ativar reescrita inteligente de prompt
+    human_description:
+      en_US: Enable smart rewriting of the input prompt. Recommended for short prompts.
+      zh_Hans: 开启输入提示词的智能改写功能。适用于较短的提示词，能显著提升生成效果，但会增加 3-4 秒的耗时。
+      pt_BR: Ativar a reescrita inteligente do prompt de entrada. Recomendado para prompts curtos.
+    llm_description: Whether to enable prompt rewriting
+    form: form
+    default: true
+  - name: watermark
+    type: boolean
+    required: false
+    label:
+      en_US: Add Watermark
+      zh_Hans: 添加水印
+      pt_BR: Adicionar marca d'água
+    human_description:
+      en_US: Whether to add a watermark to the image. The watermark will appear at the bottom-right corner with the text “AI Generated”.
+      zh_Hans: 是否添加水印标识，水印位于图片右下角，文案为“AI生成”。
+      pt_BR: Se deseja adicionar uma marca d'água à imagem. A marca d'água aparecerá no canto inferior direito com o texto “AI Generated”.
+    llm_description: Whether to add a watermark
+    form: form
+    default: false
+extra:
+  python:
+    source: tools/imagetool.py

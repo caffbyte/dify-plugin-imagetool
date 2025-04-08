@@ -1,0 +1,31 @@
+identity:
+  author: caffbyte
+  name: imagetool
+  label:
+    en_US: imagetool
+    zh_Hans: 图像工具
+    pt_BR: imagetool
+  description:
+    en_US: image tool
+    zh_Hans: 图像工具
+    pt_BR: image tool
+  icon: icon.svg
+credentials_for_provider:
+  tonyi_api_key:
+    type: secret-input
+    required: true
+    label:
+      en_US: Tonyi API key
+      zh_Hans: Tonyi API key
+    placeholder:
+      en_US: Please input your Tonyi API key
+      zh_Hans: 请输入你的 Tonyi API key
+    help:
+      en_US: Get your API key from AliCloud
+      zh_Hans: 从阿里云百炼获取 API Key
+    url: https://bailian.console.aliyun.com/?apiKey=1#/api-key
+tools:
+  - tools/imagetool.yaml
+extra:
+  python:
+    source: provider/imagetool.py
