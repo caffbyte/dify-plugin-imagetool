@@ -7,7 +7,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-class ImagetoolTool(Tool):
+class Text2Image(Tool):
     # 轮询间隔（秒）
     POLL_INTERVAL = 2
     # 最大轮询次数

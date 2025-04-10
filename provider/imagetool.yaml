@@ -25,7 +25,7 @@ credentials_for_provider:
       zh_Hans: 从阿里云百炼获取 API Key
     url: https://bailian.console.aliyun.com/?apiKey=1#/api-key
 tools:
-  - tools/imagetool.yaml
+  - tools/text2image.yaml
 extra:
   python:
     source: provider/imagetool.py

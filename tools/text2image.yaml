@@ -114,4 +114,4 @@ parameters:
     default: false
 extra:
   python:
-    source: tools/imagetool.py
+    source: tools/text2image.py
