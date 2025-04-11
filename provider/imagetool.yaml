@@ -2,13 +2,13 @@ identity:
   author: caffbyte
   name: imagetool
   label:
-    en_US: imagetool
+    en_US: Image tool
     zh_Hans: 图像工具
-    pt_BR: imagetool
+    pt_BR: Image tool
   description:
-    en_US: image tool
-    zh_Hans: 图像工具
-    pt_BR: image tool
+    en_US: A plugin for the Dify platform that provides image processing capabilities, including text-to-image generation.
+    zh_Hans: Dify平台的插件，提供图像处理功能，包括文本到图像的生成。
+    pt_BR: A plugin for the Dify platform that provides image processing capabilities, including text-to-image generation.
   icon: icon.svg
 credentials_for_provider:
   tonyi_api_key:
