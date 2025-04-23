@@ -3,15 +3,12 @@ from dify_plugin.entities.tool import ToolInvokeMessage
 from typing import Generator, Any, Dict
 import requests
 import time
-import logging
-
-logger = logging.getLogger(__name__)
 
 class Text2Image(Tool):
     # 轮询间隔（秒）
     POLL_INTERVAL = 2
     # 最大轮询次数
-    MAX_POLL_RETRIES = 60
+    MAX_POLL_RETRIES = 900
     # API 超时时间（秒）
     API_TIMEOUT = 30
 
@@ -27,7 +24,6 @@ class Text2Image(Tool):
             yield from self._poll_task_status(api_key, task_id)
             
         except Exception as e:
-            logger.exception("Image generation failed")
             yield self.create_text_message(str(e))
 
     def _submit_image_task(self, api_key: str, params: Dict) -> str:
@@ -61,14 +57,12 @@ class Text2Image(Tool):
                 error_response = e.response.json()
                 code = error_response.get("code", "Unknown error code")
                 message = error_response.get("message", "No error message provided")
-                logger.error(f"Request failed - Error Code: {code}, Error Message: {message}")
                 
                 # 返回错误提示
                 raise RuntimeError(f"Sorry, an error occurred: {message} (Error Code: {code}). Please try again later or contact support.")
             
             except ValueError:
                 # 如果无法解析错误响应，提供通用错误信息
-                logger.exception("Request failed, but unable to parse the error response")
                 raise RuntimeError("Sorry, an unknown error occurred. Please try again later or contact support.")
 
     def _poll_task_status(self, api_key: str, task_id: str) -> Generator[ToolInvokeMessage, None, None]:
