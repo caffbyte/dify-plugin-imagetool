@@ -4,7 +4,7 @@ from typing import Generator, Any, Dict
 import requests
 import time
 
-class Text2Image(Tool):
+class Doodle2Image(Tool):
     # 轮询间隔（秒）
     POLL_INTERVAL = 2
     # 最大轮询次数
@@ -30,7 +30,7 @@ class Text2Image(Tool):
         """提交图片生成任务并返回 task_id"""
         try:
             response = requests.post(
-                url="https://dashscope.aliyuncs.com/api/v1/services/aigc/text2image/image-synthesis",
+                url="https://dashscope.aliyuncs.com/api/v1/services/aigc/image2image/image-synthesis",
                 headers={
                     "X-DashScope-Async": "enable",
                     "Content-Type": "application/json",
@@ -38,8 +38,16 @@ class Text2Image(Tool):
                 },
                 json={
                     "model": params["model"],
-                    "input": {"prompt": params["prompt"]},
-                    "parameters": {"size": params["size"], "n": params["count"], "prompt_extend": params["prompt_extend"], "watermark": params["watermark"] }
+                    "input": {
+                        "sketch_image_url": params["sketch_image_url"],
+                        "prompt": params["prompt"]
+                    },
+                    "parameters": {
+                        "style": params["style"],
+                        "size": params["size"],
+                        "n": params["count"],
+                        "sketch_weight": params["sketch_weight"]
+                    }
                 },
                 timeout=self.API_TIMEOUT
             )
@@ -70,12 +78,13 @@ class Text2Image(Tool):
         for _ in range(self.MAX_POLL_RETRIES):
             task_data = self._fetch_task_result(api_key, task_id)
             status = task_data.get("output", {}).get("task_status")
+            message = task_data.get("output", {}).get("message")
 
             if status == "SUCCEEDED":
                 yield from self._handle_success_result(task_data, task_id)
                 return
             elif status in ["FAILED", "UNKNOWN"]:
-                raise RuntimeError(f"Task {task_id} failed with status: {status}")
+                raise RuntimeError(f"Task {task_id} failed with status: {status}. Message: {message}")
             
             time.sleep(self.POLL_INTERVAL)
         
@@ -107,6 +116,8 @@ class Text2Image(Tool):
     def _validate_parameters(self, params: Dict) -> None:
         """验证必要参数"""
         if not params.get("model"):
-            raise ValueError("Missing required parameter: model")
+            raise ValueError("Missing required parameter: Model")
         if not params.get("prompt"):
-            raise ValueError("Missing required parameter: prompt")
+            raise ValueError("Missing required parameter: Prompt")
+        if not params.get("sketch_image_url"):
+            raise ValueError("Missing required parameter: Sketch Image URL")

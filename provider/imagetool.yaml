@@ -26,6 +26,7 @@ credentials_for_provider:
     url: https://bailian.console.aliyun.com/?apiKey=1#/api-key
 tools:
   - tools/text2image.yaml
+  - tools/doodle2image.yaml
 extra:
   python:
     source: provider/imagetool.py

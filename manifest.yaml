@@ -1,4 +1,4 @@
-version: 0.0.1
+version: 0.0.2
 type: plugin
 author: caffbyte
 name: imagetool
@@ -8,10 +8,10 @@ label:
   zh_Hans: 图像工具
   pt_BR: Image tool
 description:
-  en_US: A plugin for the Dify platform that provides image processing capabilities, including text-to-image generation.
-  ja_JP: A plugin for the Dify platform that provides image processing capabilities, including text-to-image generation.
-  zh_Hans: Dify平台的插件，提供图像处理功能，包括文本到图像的生成。
-  pt_BR: A plugin for the Dify platform that provides image processing capabilities, including text-to-image generation.
+  en_US: A plugin for the Dify platform that provides image processing capabilities, including text-to-image generation and doodle creation.
+  ja_JP: A plugin for the Dify platform that provides image processing capabilities, including text-to-image generation and doodle creation.
+  zh_Hans: Dify平台的插件，提供图像处理功能，包括文本到图像、涂鸦作画的生成。
+  pt_BR: A plugin for the Dify platform that provides image processing capabilities, including text-to-image generation and doodle creation.
 icon: icon.svg
 resource:
   memory: 268435456

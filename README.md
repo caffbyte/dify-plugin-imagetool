@@ -15,10 +15,21 @@ Generates images based on text prompts using the Tonyi API.
 3. **Configure in Dify**  
    In the Dify navigation panel, go to **Tools > ImageTool > Authorize**, and enter your API key.
 
-4. **Start Using the Tool**  
-   Once configured, you can start generating images via text prompts.
+4. **Start Using the Tool**
 
-   ![](_assets/text2image.png)
+   Once authorized, you can begin generating images in Dify using several powerful features, including:  
+   ![Start Using the Tool](_assets/start-using-the-tool.png)
+
+   **Text to Image**: Enter a descriptive prompt to generate an image.  
+   ![text to image](_assets/text2image.png)
+
+   **Doodle to Image**: Upload or draw a simple sketch, and ImageTool will convert it into a detailed and refined image.
+
+   Example of a rough sketch input(https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/6609471071/p743851.jpg).  
+   ![doodle to image sketch](_assets/doodle2image-sketch.png)
+
+   Resulting image generated from the sketch.  
+   ![doodle to image](_assets/doodle2image.png)
 
 ---
 

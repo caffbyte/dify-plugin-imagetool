@@ -1,10 +1,10 @@
 identity:
-  name: imagetool
+  name: text2image
   author: caffbyte
   label:
-    en_US: Text to image
-    zh_Hans: 文生图
-    pt_BR: Text to image
+    en_US: Text to Image
+    zh_Hans: 文本生成图像
+    pt_BR: Text to Image
 description:
   human:
     en_US: Generate an image based on a text prompt.
@@ -13,18 +13,35 @@ description:
   llm: Generate an image based on a text prompt.
 parameters:
   - name: model
-    type: string
+    type: select
     required: true
+    default: wanx2.1-t2i-plus
     label:
-      en_US: Model name
+      en_US: Model Name
       zh_Hans: 模型名称
-      pt_BR: Model name
+      pt_BR: Model Name
     human_description:
-      en_US: "The model name, example value: wanx2.1-T2-turbo."
-      zh_Hans: "模型名称，示例值：wanx2.1-t2i-turbo。"
-      pt_BR: "The model name, example value: wanx2.1-T2-turbo."
-    llm_description: "The model name, example value: wanx2.1-T2-turbo."
-    form: llm
+      en_US: "The model name."
+      zh_Hans: "模型名称。"
+      pt_BR: "The model name."
+    llm_description: "The model name to use for generation."
+    form: form
+    options:
+      - label:
+          en_US: wanx2.1-t2i-plus
+          zh_Hans: wanx2.1-t2i-plus
+          pt_BR: wanx2.1-t2i-plus
+        value: "wanx2.1-t2i-plus"
+      - label:
+          en_US: wanx2.1-t2i-turbo
+          zh_Hans: wanx2.1-t2i-turbo
+          pt_BR: wanx2.1-t2i-turbo
+        value: "wanx2.1-t2i-turbo"
+      - label:
+          en_US: wanx2.0-t2i-turbo
+          zh_Hans: wanx2.0-t2i-turbo
+          pt_BR: wanx2.0-t2i-turbo
+        value: "wanx2.0-t2i-turbo"
   - name: prompt
     type: string
     required: true
@@ -43,9 +60,9 @@ parameters:
     required: false
     default: 1024*1024
     label:
-      en_US: Image size
+      en_US: Image Size
       zh_Hans: 图像尺寸
-      pt_BR: Image size
+      pt_BR: Image Size
     human_description:
       en_US: Choose the image size from the options below.
       zh_Hans: 从以下选项中选择图像尺寸。
@@ -54,27 +71,27 @@ parameters:
     form: form
     options:
       - label:
-          en_US: 1024*1024
-          zh_Hans: 1024*1024
-          pt_BR: 1024*1024
+          en_US: 1024×1024
+          zh_Hans: 1024×1024
+          pt_BR: 1024×1024
         value: 1024*1024
       - label:
-          en_US: 1280*720
-          zh_Hans: 1280*720
-          pt_BR: 1280*720
+          en_US: 1280×720
+          zh_Hans: 1280×720
+          pt_BR: 1280×720
         value: 1280*720
       - label:
-          en_US: 720*1280
-          zh_Hans: 720*1280
-          pt_BR: 720*1280
+          en_US: 720×1280
+          zh_Hans: 720×1280
+          pt_BR: 720×1280
         value: 720*1280
   - name: count
     type: number
     required: false
     label:
-      en_US: Number of images generated
+      en_US: Number of Images Generated
       zh_Hans: 生成的图像数量
-      pt_BR: Number of images generated
+      pt_BR: Number of Images Generated
     human_description:
       en_US: Select how many images you want to generate (1~4).
       zh_Hans: 选择要生成的图片数量（1~4）。
@@ -88,9 +105,9 @@ parameters:
     type: boolean
     required: false
     label:
-      en_US: Enable smart prompt rewriting
+      en_US: Enable Smart Prompt Rewriting
       zh_Hans: 开启智能改写
-      pt_BR: Enable smart prompt rewriting
+      pt_BR: Enable Smart Prompt Rewriting
     human_description:
       en_US: Enable smart rewriting of the input prompt. Recommended for short prompts.
       zh_Hans: 开启输入提示词的智能改写功能。适用于较短的提示词，能显著提升生成效果，但会增加 3-4 秒的耗时。
@@ -102,9 +119,9 @@ parameters:
     type: boolean
     required: false
     label:
-      en_US: Add watermark
+      en_US: Add Watermark
       zh_Hans: 添加水印
-      pt_BR: Add watermark
+      pt_BR: Add Watermark
     human_description:
       en_US: Whether to add a watermark to the image. The watermark will appear at the bottom-right corner with the text “AI Generated”.
       zh_Hans: 是否添加水印标识，水印位于图片右下角，文案为“AI生成”。
