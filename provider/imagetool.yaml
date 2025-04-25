@@ -2,13 +2,13 @@ identity:
   author: caffbyte
   name: imagetool
   label:
-    en_US: Image tool
-    zh_Hans: 图像工具
-    pt_BR: Image tool
+    en_US: Image generation tool
+    zh_Hans: 图像生成工具
+    pt_BR: Image generation tool
   description:
-    en_US: A plugin for the Dify platform that provides image processing capabilities, including text-to-image generation and doodle creation.
-    zh_Hans: Dify平台的插件，提供图像处理功能，包括文本到图像、涂鸦作画的生成。
-    pt_BR: A plugin for the Dify platform that provides image processing capabilities, including text-to-image generation and doodle creation.
+    en_US: An image generation plugin for the Dify platform, supporting text-to-image conversion, sketch refinement, and automated creative poster generation.
+    zh_Hans: Dify 平台的图像生成插件，支持文本转图像、涂鸦精修，以及创意海报自动生成。
+    pt_BR: An image generation plugin for the Dify platform, supporting text-to-image conversion, sketch refinement, and automated creative poster generation.
   icon: icon.svg
 credentials_for_provider:
   tonyi_api_key:
@@ -27,6 +27,7 @@ credentials_for_provider:
 tools:
   - tools/text2image.yaml
   - tools/doodle2image.yaml
+  - tools/creative_poster.yaml
 extra:
   python:
     source: provider/imagetool.py
