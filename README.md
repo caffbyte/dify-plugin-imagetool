@@ -2,8 +2,6 @@
 
 > A powerful Dify plugin for generating stunning images from text prompts, refining hand‑drawn sketches, and generating creative posters using the Tonyi API.
 
----
-
 ## 📖 Overview
 
 `ImageTool` allows you to seamlessly integrate image generation into your Dify workflows. With just a few simple steps, you can:
@@ -13,8 +11,6 @@
 - **Generate creative posters from titles, subtitles, body text, and prompts**
 
 Powered by the Tonyi API, this plugin brings AI‑driven creativity directly into your Dify projects.
-
----
 
 ## ⚙️ Configuration
 
@@ -26,8 +22,6 @@ Powered by the Tonyi API, this plugin brings AI‑driven creativity directly int
 3. **Authorize in Dify**
    - Navigate to **Tools > ImageTool > Authorize** in the Dify sidebar.
    - Enter your Tonyi API key and click **Save**.
-
----
 
 ## 🚀 Usage
 
@@ -58,8 +52,6 @@ Upload a simple sketch or draw one directly in Dify. ImageTool will use the Tony
 Generate creative posters from titles, subtitles, body text, and prompts. This feature is ideal for designing brand promotional posters, event flyers, and social media covers using pre-defined or custom poster templates.
 
 ![Creative Poster](_assets/creative-poster.png)
-
----
 
 ## 🤝 Contributing & Support
 
