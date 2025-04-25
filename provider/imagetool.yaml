@@ -27,6 +27,7 @@ credentials_for_provider:
 tools:
   - tools/text2image.yaml
   - tools/doodle2image.yaml
+  - tools/creative_poster.yaml
 extra:
   python:
     source: provider/imagetool.py

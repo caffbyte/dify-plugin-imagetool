@@ -86,7 +86,8 @@ def handle_success_result(
     1. JSON 消息，包含 task_id、image_count、results 列表
     2. 对每张图片 URL，产出一个 image message
     """
-    results = task_data["output"].get("results", [])
+    output = task_data["output"]
+    results = output.get("results") or output.get("render_urls") or []
 
     yield tool.create_json_message({
         "task_id": task_id,
@@ -95,7 +96,11 @@ def handle_success_result(
     })
 
     for item in results:
-        if url := item.get("url"):
+        if isinstance(item, str):
+            # 字符串列表的情况
+            yield tool.create_image_message(item)
+        elif isinstance(item, dict) and (url := item.get("url")):
+            # 对象列表的情况
             yield tool.create_image_message(url)
 
 def poll_task_status(
