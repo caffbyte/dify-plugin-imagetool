@@ -10,6 +10,9 @@ identity:
     zh_Hans: Dify 平台的图像生成插件，支持文本转图像、涂鸦精修，以及创意海报自动生成。
     pt_BR: An image generation plugin for the Dify platform, supporting text-to-image conversion, sketch refinement, and automated creative poster generation.
   icon: icon.svg
+  tags:
+    - image
+    - productivity
 credentials_for_provider:
   tonyi_api_key:
     type: secret-input
